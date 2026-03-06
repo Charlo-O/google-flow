@@ -1,5 +1,10 @@
 # Google Flow Skill
 
+[![GitHub](https://img.shields.io/badge/github-Charlo--O%2Fgoogle--flow-181717?logo=github)](https://github.com/Charlo-O/google-flow)
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D4?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
+[![Flow](https://img.shields.io/badge/target-Google%20Flow-4285F4)](https://labs.google/fx/tools/flow)
+
 `Google Flow Skill` 是一个面向 Codex 的自动化技能，用持久化浏览器会话操作 [Google Flow](https://labs.google/fx/tools/flow)。
 
 它延续了 `notebooklm-skill` 的整体结构：
@@ -18,6 +23,30 @@
 - 上传 ingredient 图片或视频首尾帧
 - 列出项目里的图片和视频编辑地址
 - 对已有图片执行裁剪、框选重绘、涂抹重绘、文本叠加和整图 prompt 编辑
+
+## 导航
+
+- [环境要求](#环境要求)
+- [快速开始](#快速开始)
+- [已实现能力](#已实现能力)
+- [生成图片](#生成图片)
+- [生成视频](#生成视频)
+- [编辑图片](#编辑图片)
+- [公开仓库说明](#公开仓库说明)
+- [当前限制](#当前限制)
+
+## 已实现能力
+
+| 能力 | 状态 | 说明 |
+| --- | --- | --- |
+| Flow 登录管理 | 已完成 | 使用本地持久化浏览器会话 |
+| 最近项目同步 | 已完成 | 从已登录的 Flow 首页抓取最近项目 |
+| 本地项目激活/搜索 | 已完成 | 维护本地项目库，方便重复调用 |
+| 图片生成 | 已完成 | 支持模型、比例、输出数量 |
+| 视频生成 | 已完成 | 支持 `ingredients` 和 `frames` 两种模式 |
+| ingredient 上传 | 已完成 | 使用本地绝对路径上传 |
+| 已有图片编辑 | 已完成 | 支持整图、框选、矩形涂抹、画笔、裁剪、加字 |
+| SceneBuilder 自动化 | 未包含 | 当前仍然不在范围内 |
 
 ## 环境要求
 
@@ -233,6 +262,20 @@ python scripts/run.py edit_image.py \
 - 优先执行 `project_manager.py sync`，不要先手动维护项目 URL
 - 上传 ingredient 图片和视频帧时使用绝对路径
 - 图片生成、视频生成和 prompt 编辑可能会消耗 Flow 点数
+
+## 公开仓库说明
+
+这个公开仓库只包含 skill 的源码和文档。
+
+不会公开以下运行态内容：
+
+- 浏览器登录状态
+- Flow cookie 或 session 文件
+- 本地下载的媒体文件
+- 本地虚拟环境
+- `.env` 配置
+
+这些内容都已经通过 `.gitignore` 排除，尤其是 `data/`、`.venv/` 和 `.env`。
 
 ## 当前限制
 

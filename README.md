@@ -1,5 +1,10 @@
 # Google Flow Skill
 
+[![GitHub](https://img.shields.io/badge/github-Charlo--O%2Fgoogle--flow-181717?logo=github)](https://github.com/Charlo-O/google-flow)
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D4?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
+[![Flow](https://img.shields.io/badge/target-Google%20Flow-4285F4)](https://labs.google/fx/tools/flow)
+
 Google Flow Skill is a Codex skill for automating [Google Flow](https://labs.google/fx/tools/flow) with a persistent browser session.
 
 It follows the same architecture as `notebooklm-skill`:
@@ -18,6 +23,30 @@ This skill can:
 - upload ingredient images or start/end frames
 - list image and video asset edit URLs inside a project
 - edit existing Flow images with crop, selection masks, draw masks, text overlays, and prompt-based revisions
+
+## Navigation
+
+- [Requirements](#requirements)
+- [Quick Start](#quick-start)
+- [Implemented Workflows](#implemented-workflows)
+- [Generate Images](#generate-images)
+- [Generate Videos](#generate-videos)
+- [Edit Images](#edit-images)
+- [Public Repo Notes](#public-repo-notes)
+- [Current Limitations](#current-limitations)
+
+## Implemented Workflows
+
+| Workflow | Status | Notes |
+| --- | --- | --- |
+| Flow authentication | Ready | Persistent browser session stored locally |
+| Recent project sync | Ready | Scrapes recent projects from the signed-in Flow home page |
+| Local project activation/search | Ready | Keeps a local project library for repeat runs |
+| Image generation | Ready | Supports model, aspect ratio, and output count |
+| Video generation | Ready | Supports `ingredients` and `frames` modes |
+| Ingredient uploads | Ready | Uses absolute local file paths |
+| Existing image edits | Ready | Full edit, select-box, draw-rect, draw-brush, crop, text |
+| SceneBuilder automation | Not included | Still out of scope |
 
 ## Requirements
 
@@ -232,6 +261,20 @@ Coordinate rules:
 - Prefer syncing recent projects before adding project URLs manually
 - Use absolute file paths for ingredient images and video frames
 - Generation and prompt-based edits may consume Flow credits
+
+## Public Repo Notes
+
+This public repository contains only the skill source code and documentation.
+
+It does not publish:
+
+- browser login state
+- Flow cookies or session files
+- downloaded media assets
+- local virtual environments
+- `.env` files
+
+Those runtime files are excluded by `.gitignore`, especially `data/`, `.venv/`, and `.env`.
 
 ## Current Limitations
 
