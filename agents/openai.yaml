@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Flow"
+  short_description: "Flow auth, project sync, generation, and image edits"
+  default_prompt: "Use $google-flow to authenticate, sync recent projects, generate media, and edit existing Flow images with masks, crop, or text overlays."
